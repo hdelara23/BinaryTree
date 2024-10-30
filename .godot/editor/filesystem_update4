@@ -1,0 +1,8 @@
+res://cube.tscn
+res://addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres
+res://addons/godot-xr-tools/hands/animations/right/hand_blend_tree.tres
+res://main.tscn
+res://xr_origin.tscn
+res://rock_climb_object.tscn
+res://game_ui.tscn
+res://addons/godot-xr-tools/misc/hold_button_visualshader.tres

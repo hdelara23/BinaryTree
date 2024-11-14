@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca4dy4a8x7myp"]
+
+[ext_resource type="Texture2D" uid="uid://b42o6y0qjw47d" path="res://portal_tiles.png" id="1_bbklo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dvkr"]
+albedo_texture = ExtResource("1_bbklo")
+
+[sub_resource type="QuadMesh" id="8"]
+material = SubResource("StandardMaterial3D_8dvkr")
+size = Vector2(24, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnmj8"]
+albedo_texture = ExtResource("1_bbklo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_70oxv"]
+lightmap_size_hint = Vector2i(126, 21)
+material = SubResource("StandardMaterial3D_bnmj8")
+size = Vector2(24, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8rwh"]
+size = Vector3(24, 10, 1)
+
+[node name="Wall1" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -12)
+
+[node name="TopWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+layers = 3
+mesh = SubResource("8")
+skeleton = NodePath("../..")
+
+[node name="BottomWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0792923, -3.5, -0.00187683)
+layers = 3
+mesh = SubResource("QuadMesh_70oxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_v8rwh")

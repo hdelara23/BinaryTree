@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dwyb5kn72tadd"]
+[gd_scene load_steps=2 format=3 uid="uid://dwyb5kn72tadd"]
+
+[ext_resource type="Script" path="res://Scripts/SortingAlgo_Tutorial.gd" id="1_vo8nj"]
 
 [node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_vo8nj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -62,10 +65,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = 231.0
-offset_right = -32.0
-offset_bottom = 231.0
+offset_left = 186.0
+offset_top = 370.0
+offset_right = -428.0
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -85,17 +88,17 @@ custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.873928, 0.59642, 0.897967, 1)
 theme_override_font_sizes/font_size = 64
-text = "Demo"
+text = "Tutorial"
 
 [node name="MarginContainer3" type="MarginContainer" parent="Control/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 480.0
-offset_top = 231.0
-offset_right = 480.0
-offset_bottom = 231.0
+offset_left = 1132.0
+offset_top = 467.0
+offset_right = -128.0
+offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -116,3 +119,5 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.873928, 0.59642, 0.897967, 1)
 theme_override_font_sizes/font_size = 64
 text = "Practice"
+
+[connection signal="pressed" from="Control/ColorRect/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -46,7 +46,7 @@ var max_z_temp = 2
 
 # the distance between each cube and the initial height of the cubes 
 var cube_distance_inbetween = 0.3
-var cube_height = 0.83
+var cube_height = 0.055
 
 # below is the reference to the cube that is out of line (the one being moved) 
 var index_of_cube_out  # index of the current cube we are moving 
@@ -120,8 +120,9 @@ func _start():
 	
 	# temp coordinates 
 	var temp_z = 0.25
-	var temp_y = 0.8
-	var border_height = 0.8
+	var temp_y = 0.00255 # was at 0.8
+	var border_height = 0.025 # was at 0.8
+	var temp_border_height = 0.045
 	
 	# add each cube to the scene along with its borders 
 	for i in range(cube_count):
@@ -205,23 +206,23 @@ func _start():
 			
 			if j == 0: # left side border 
 				add_child(temp_border_instance) # add the border to the scene 
-				temp_border_instance.global_transform.origin = Vector3(min_x_temp, border_height, temp_center.z)
+				temp_border_instance.global_transform.origin = Vector3(min_x_temp, temp_border_height, temp_center.z)
 				border_list.append(temp_border_instance)
 				
 			if j == 1: # right side border 
 				add_child(temp_border_instance) # add the border to the scene 
-				temp_border_instance.global_transform.origin = Vector3(max_x_temp, border_height, temp_center.z)
+				temp_border_instance.global_transform.origin = Vector3(max_x_temp, temp_border_height, temp_center.z)
 				border_list.append(temp_border_instance)
 				
 			if j == 2: #above side border (negative direction)
 				add_child(temp_border_instance) # add the border to the scene 
-				temp_border_instance.global_transform.origin = Vector3(temp_center.x, border_height, min_z_temp)
+				temp_border_instance.global_transform.origin = Vector3(temp_center.x, temp_border_height, min_z_temp)
 				temp_border_instance.rotation_degrees = Vector3(0, 90, 0)  # Rotate 90 degrees around the Y-axis
 				border_list.append(temp_border_instance)
 				
 			if j == 3: # below side border (positive direction) 
 				add_child(temp_border_instance) # add the border to the scene 
-				temp_border_instance.global_transform.origin = Vector3(temp_center.x, border_height, max_z_temp)
+				temp_border_instance.global_transform.origin = Vector3(temp_center.x, temp_border_height, max_z_temp)
 				temp_border_instance.rotation_degrees = Vector3(0, 90, 0)  # Rotate 90 degrees around the Y-axis
 				border_list.append(temp_border_instance)
 	

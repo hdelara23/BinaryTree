@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://de4uxw2mqscai"]
+[gd_scene load_steps=21 format=3 uid="uid://de4uxw2mqscai"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_p42iy"]
+[ext_resource type="Script" path="res://interactive_mode.gd" id="1_2hsy2"]
 [ext_resource type="PackedScene" uid="uid://yr24aigjo3tq" path="res://xr_origin_3d.tscn" id="2_k8eou"]
 [ext_resource type="PackedScene" uid="uid://djkui8l4yreqh" path="res://cube.tscn" id="3_ymy4v"]
 [ext_resource type="PackedScene" uid="uid://c3lu6fo0no58d" path="res://temp.tscn" id="4_n24m3"]
@@ -21,10 +21,10 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s71vx"]
-size = Vector3(10, 0.1, 10)
+size = Vector3(20, 0.1, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6bast"]
-size = Vector3(10, 0.1, 10)
+size = Vector3(20, 0.1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tfrr"]
 albedo_color = Color(0.345448, 0.377812, 0.341497, 1)
@@ -40,21 +40,27 @@ size = Vector3(4, 1, 1)
 resource_local_to_scene = true
 size = Vector2(300, 200)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g84jp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xlfft"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owif6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s225m"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_g84jp")
+albedo_texture = SubResource("ViewportTexture_xlfft")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8r0yu"]
 resource_local_to_scene = true
 size = Vector3(300, 200, 0.02)
 
+[sub_resource type="BoxMesh" id="BoxMesh_87t2i"]
+size = Vector3(1, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7f7y"]
+size = Vector3(1, 1.5, 1)
+
 [node name="Main" type="Node3D"]
-script = ExtResource("1_p42iy")
+script = ExtResource("1_2hsy2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_plip5")
@@ -75,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7583, -0.250031, -0.130043)
 mesh = SubResource("BoxMesh_6bast")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_k8eou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6977, -0.458948, 2.22052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698, -0.896137, 3.087)
 
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957467, -0.503222, -0.00129414)
@@ -87,7 +93,7 @@ mesh = SubResource("BoxMesh_y23rg")
 shape = SubResource("BoxShape3D_j011u")
 
 [node name="PickableObject" parent="." instance=ExtResource("3_ymy4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.786415, -0.100019, -0.300388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30953, 0.620011, -3.64741)
 
 [node name="Temp" parent="." instance=ExtResource("4_n24m3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91477, -0.136714, -0.239316)
@@ -101,13 +107,22 @@ screen_size = Vector2(300, 200)
 [node name="Screen" parent="Regenerate" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36999, 0.0688934)
 mesh = SubResource("QuadMesh_60e3a")
-surface_material_override/0 = SubResource("StandardMaterial3D_owif6")
+surface_material_override/0 = SubResource("StandardMaterial3D_s225m")
 
 [node name="StaticBody3D" parent="Regenerate" index="2"]
 screen_size = Vector2(300, 200)
 
 [node name="CollisionShape3D" parent="Regenerate/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_8r0yu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14893, -0.234234, -3.3658)
+mesh = SubResource("BoxMesh_87t2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_y7f7y")
 
 [connection signal="pressed" from="Regenerate/Viewport/Node2D/Control/ColorRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 

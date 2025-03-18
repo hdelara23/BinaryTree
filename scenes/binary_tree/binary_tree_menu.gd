@@ -1,21 +1,14 @@
 extends Control
 
+signal find_pressed  # Define a signal that the 3D world will listen for
 
-func _on_tutorial_pressed():
-	get_tree().change_scene_to_file("res://scenes/binary_tree/GameModes/Tutorial.tscn")
+@onready var find_button = $ButtonContainer/Find
 
-
-func _on_insert_pressed():
-	get_tree().change_scene_to_file("res://scenes/binary_tree/GameModes/Insert.tscn")
-
+func _ready():
+	# Ensure the signal is connected only once
+	if not find_button.pressed.is_connected(_on_find_pressed):
+		find_button.pressed.connect(_on_find_pressed)
 
 func _on_find_pressed():
-	get_tree().change_scene_to_file("res://scenes/binary_tree/GameModes/Find.tscn")
-
-
-func _on_delete_pressed():
-	get_tree().change_scene_to_file("res://scenes/binary_tree/GameModes/Delete.tscn")
-
-
-func _on_playground_pressed():
-	get_tree().change_scene_to_file("res://scenes/binary_tree/GameModes/Playground.tscn")
+	""" Notify the 3D world that the 'Find' button was pressed """
+	emit_signal("find_pressed")

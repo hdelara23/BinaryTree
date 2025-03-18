@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwyb5kn72tadd"]
 
-[ext_resource type="Script" path="res://Scripts/SortingAlgo_Tutorial.gd" id="1_vo8nj"]
+[ext_resource type="Script" uid="uid://c6d4xntac8l2i" path="res://Scripts/SortingAlgo_Tutorial.gd" id="1_vo8nj"]
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_vo8nj")

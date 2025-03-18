@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c3knokvu8x851"]
 
-[ext_resource type="Script" path="res://scenes/binary_tree/binary_tree_menu.gd" id="1_wo28s"]
-[ext_resource type="Script" path="res://scenes/binary_tree/vr_pointer.gd" id="2_4bc7e"]
+[ext_resource type="Script" uid="uid://bjguoydlo7cj7" path="res://scenes/binary_tree/binary_tree_menu.gd" id="1_wo28s"]
+[ext_resource type="Script" uid="uid://bntejr6qy7ejg" path="res://scenes/binary_tree/vr_pointer.gd" id="2_4bc7e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s8kme"]
 font_size = 20
@@ -85,7 +85,7 @@ script = ExtResource("1_wo28s")
 layout_mode = 0
 offset_right = 1929.0
 offset_bottom = 1076.0
-color = Color(0.306923, 0.306923, 0.306923, 1)
+color = Color(0.19489, 0.465034, 0.467687, 1)
 
 [node name="Title Label" type="Label" parent="."]
 layout_mode = 0
@@ -99,7 +99,7 @@ text = "BINARY SEARCH TREES
 label_settings = SubResource("LabelSettings_s8kme")
 horizontal_alignment = 1
 
-[node name="Button Container" type="VBoxContainer" parent="."]
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.021
@@ -110,31 +110,31 @@ offset_right = 1183.68
 offset_bottom = 998.0
 theme_override_constants/separation = 30
 
-[node name="Tutorial" type="Button" parent="Button Container"]
+[node name="Tutorial" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_y2hno")
 text = "TUTORIAL"
 
-[node name="Insert" type="Button" parent="Button Container"]
+[node name="Insert" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_umtn7")
 text = "INSERT"
 
-[node name="Find" type="Button" parent="Button Container"]
+[node name="Find" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_5rx4h")
 text = "FIND"
 
-[node name="Delete" type="Button" parent="Button Container"]
+[node name="Delete" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_mw477")
 text = "DELETE"
 
-[node name="Playground" type="Button" parent="Button Container"]
+[node name="Playground" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_r44sl")
@@ -163,8 +163,8 @@ script = ExtResource("2_4bc7e")
 mesh = SubResource("QuadMesh_urmsw")
 skeleton = NodePath("../BinaryTreeDisplay")
 
-[connection signal="pressed" from="Button Container/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Button Container/Insert" to="." method="_on_insert_pressed"]
-[connection signal="pressed" from="Button Container/Find" to="." method="_on_find_pressed"]
-[connection signal="pressed" from="Button Container/Delete" to="." method="_on_delete_pressed"]
-[connection signal="pressed" from="Button Container/Playground" to="." method="_on_playground_pressed"]
+[connection signal="pressed" from="ButtonContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonContainer/Insert" to="." method="_on_insert_pressed"]
+[connection signal="pressed" from="ButtonContainer/Find" to="." method="_on_find_pressed"]
+[connection signal="pressed" from="ButtonContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="ButtonContainer/Playground" to="." method="_on_playground_pressed"]

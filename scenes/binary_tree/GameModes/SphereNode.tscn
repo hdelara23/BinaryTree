@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5wjn1uwk3r3h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ovks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqyyb"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.203922, 1, 0.419608, 1)
+
+[node name="SphereNode" type="Node3D"]
+
+[node name="SphereMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0ovks")
+surface_material_override/0 = SubResource("StandardMaterial3D_aqyyb")
+
+[node name="ValueLabel" type="Label3D" parent="."]
+text = "??"
+font_size = 80
+outline_size = 30

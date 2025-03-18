@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7lig4pw4h8j8"]
 
-[ext_resource type="Script" path="res://Dialogue/DialogueScripts/selection_sort_dialogue.gd" id="1_wel2i"]
+[ext_resource type="Script" uid="uid://cnoe2ttc1dnj" path="res://Dialogue/DialogueScripts/selection_sort_dialogue.gd" id="1_wel2i"]
 
 [node name="Dialogue" type="CanvasLayer"]
 script = ExtResource("1_wel2i")

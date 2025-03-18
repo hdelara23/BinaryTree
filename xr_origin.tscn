@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="6_6qra1"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="6_ksjf0"]
 [ext_resource type="PackedScene" uid="uid://kyhaogt0a4q8" path="res://addons/godot-xr-tools/functions/movement_flight.tscn" id="6_my7dr"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_5j6bk"]
+[ext_resource type="Script" uid="uid://buna6mdhbpoae" path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" id="8_5j6bk"]
 
 [sub_resource type="Resource" id="Resource_jo4hk"]
 script = ExtResource("8_5j6bk")

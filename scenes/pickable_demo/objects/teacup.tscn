@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="4"]
 [ext_resource type="Animation" uid="uid://bqnoubqq7ogwu" path="res://addons/godot-xr-tools/hands/animations/left/Pinky.res" id="4_a44uc"]
 [ext_resource type="Material" path="res://scenes/pickable_demo/materials/porcelain.tres" id="5"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_rkolq"]
+[ext_resource type="Script" uid="uid://ckgh25vexxcx4" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_rkolq"]
 [ext_resource type="Animation" uid="uid://b6ra3rqia1gvb" path="res://addons/godot-xr-tools/hands/animations/right/Pinky.res" id="7_m23hc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea5pe"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5wjn1uwk3r3h"]
+[gd_scene load_steps=4 format=3 uid="uid://b5wjn1uwk3r3h"]
+
+[ext_resource type="Script" uid="uid://bd07l3enfqo7" path="res://scenes/binary_tree/GameModes/SphereNode.gd" id="1_aqyyb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0ovks"]
 
@@ -8,6 +10,7 @@ blend_mode = 1
 albedo_color = Color(0.203922, 1, 0.419608, 1)
 
 [node name="SphereNode" type="Node3D"]
+script = ExtResource("1_aqyyb")
 
 [node name="SphereMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_0ovks")

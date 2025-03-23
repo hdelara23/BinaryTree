@@ -15,40 +15,51 @@ var exit_button
 # Reference to TreeRenderer (for rendering BST in 3D)
 @onready var tree_renderer = $TreeRenderer
 
-
 var target_value: int
 var arraylist = []
 
 func _ready():
 	print("Find scene loaded!")
 
-	# Wait for Viewport2DIn3D to be ready
-	await get_tree().process_frame  # Ensures nodes are loaded before accessing them
+	# Wait for everything to load before accessing nodes
+	await get_tree().process_frame  
 
-	# Get the Viewport2DIn3D node
-	viewport = $FindMenu
+	# Get the FindMenu node (Viewport2DIn3D)
+	viewport = $FindMenu  
 
 	if viewport:
-		var find_ui = viewport.get_child(0)  # Get first child (FindUI.tscn)
-		
+		var find_ui = viewport.get_child(0)  # Get FindUI.tscn instance
+
 		if find_ui:
+			# ✅ Ensure correct paths to UI elements
 			find_label = find_ui.get_node("UI/VBoxContainer/FindLabel")
 			arraylist_label = find_ui.get_node("UI/VBoxContainer/ArrayListLabel")
 			new_tree_button = find_ui.get_node("UI/HBoxContainer/NewTreeButton")
 			undo_button = find_ui.get_node("UI/HBoxContainer/UndoButton")
 			exit_button = find_ui.get_node("UI/HBoxContainer/ExitButton")
 
-			# Connect button signals
-			exit_button.pressed.connect(_on_exit_pressed)
-			new_tree_button.pressed.connect(_on_new_tree_pressed)
-			undo_button.pressed.connect(_on_undo_pressed)
+			# ✅ Check nodes before connecting signals
+			if exit_button:
+				exit_button.pressed.connect(_on_exit_pressed)
+			else:
+				print("Error: ExitButton not found!")
 
-			# Generate an initial tree with a target number
+			if new_tree_button:
+				new_tree_button.pressed.connect(_on_new_tree_pressed)
+			else:
+				print("Error: NewTreeButton not found!")
+
+			if undo_button:
+				undo_button.pressed.connect(_on_undo_pressed)
+			else:
+				print("Error: UndoButton not found!")
+
+			# ✅ Generate an initial tree when scene loads
 			_generate_new_tree()
 		else:
-			print("Error: FindUI scene not found inside Viewport2DIn3D!")
+			print("Error: FindUI scene not found inside FindMenu!")
 	else:
-		print("Error: Viewport2DIn3D not found in Find.tscn!")
+		print("Error: FindMenu not found in Find.tscn!")
 
 func _on_exit_pressed():
 	""" Exits Find mode and returns to the main scene. """
@@ -68,19 +79,19 @@ func _generate_new_tree():
 	""" Generates a new BST and displays it in 3D """
 	bst_root = binary_tree.generate_random_bst()
 	target_value = _pick_random_node(bst_root)  # Pick a random number from the BST
-	
+
 	if find_label:
 		find_label.text = "FIND: " + str(target_value)  # Update FindLabel with target value
-	
+
 	arraylist.clear()
 	_update_arraylist_label()
 
-	# Clear previous tree before rendering a new one
+	# ✅ Clear previous tree before rendering a new one
 	for child in tree_renderer.get_children():
 		tree_renderer.remove_child(child)
 		child.queue_free()
 
-	# Render the new tree in 3D
+	# ✅ Render the new tree in 3D
 	tree_renderer.render_tree(bst_root, tree_renderer)
 
 func _pick_random_node(root):

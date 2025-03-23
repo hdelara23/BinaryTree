@@ -66,6 +66,7 @@ shape = SubResource("BoxShape3D_pdnj3")
 
 [node name="Platform2" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 0.0402886, 2.02362, -15.3626)
+visible = false
 mesh = SubResource("BoxMesh_62jnx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Platform2"]

@@ -26,6 +26,7 @@ script = ExtResource("4_tcy6j")
 closed_pose = ExtResource("6_dngeg")
 
 [node name="PickableObject" instance=ExtResource("1_xyb8c")]
+picked_up_layer = 65540
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_nkb6t")

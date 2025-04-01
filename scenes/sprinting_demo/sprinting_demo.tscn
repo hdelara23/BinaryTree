@@ -103,9 +103,7 @@ script = ExtResource("2_5a8oj")
 hand_material_override = ExtResource("12")
 
 [node name="Skeleton3D" parent="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L/Armature" index="0"]
-bones/1/rotation = Quaternion(0.323537, -2.56588e-05, -0.0272204, 0.945824)
-bones/6/rotation = Quaternion(0.102925, -0.00993208, -0.00794416, 0.994608)
-bones/21/rotation = Quaternion(-0.0625182, -0.000225721, -0.115393, 0.991351)
+bones/1/rotation = Quaternion(0.323537, -2.56581e-05, -0.0272204, 0.945824)
 
 [node name="mesh_Hand_Nails_low_L" parent="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L/Armature/Skeleton3D" index="0"]
 material_override = ExtResource("12")
@@ -138,8 +136,7 @@ jump_button_action = "ax_button"
 hand_material_override = ExtResource("12")
 
 [node name="Skeleton3D" parent="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R/Armature" index="0"]
-bones/1/rotation = Quaternion(0.323537, 2.56588e-05, 0.0272204, 0.945824)
-bones/21/rotation = Quaternion(-0.0625182, 0.000225722, 0.115393, 0.991351)
+bones/1/rotation = Quaternion(0.323537, 2.56581e-05, 0.0272204, 0.945824)
 
 [node name="mesh_Hand_Nails_low_R" parent="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R/Armature/Skeleton3D" index="0"]
 material_override = ExtResource("12")

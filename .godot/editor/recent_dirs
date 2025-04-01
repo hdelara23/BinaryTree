@@ -1,6 +1,6 @@
+res://scenes/binary_tree
 res://scenes/binary_tree/GameModes
 res://scenes/binary_tree/Scripts
-res://scenes/binary_tree
 res://addons/godot-xr-tools/objects
 res://addons/godot-xr-tools/hands/animations/right
 res://addons/godot-xr-tools/hands/animations/left

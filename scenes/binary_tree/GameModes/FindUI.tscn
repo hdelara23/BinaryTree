@@ -26,7 +26,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="FindUi" type="Node2D"]
+[node name="FindUI" type="Node2D"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
